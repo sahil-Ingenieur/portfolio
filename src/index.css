@@ -2,8 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Application foundation */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
 
-/* Featured project actions */
+::selection {
+  background-color: var(--color-accent-soft);
+  color: var(--color-text);
+}
+
+/*
+ * Shared actions.
+ * Existing project-action classes remain supported so Home.tsx
+ * does not need to change in this step.
+ */
+.button,
+.project-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 46px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.button--primary,
+.project-action--primary {
+  background-color: var(--color-text);
+  color: var(--color-surface);
+}
+
+.button--primary:hover,
+.project-action--primary:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.button--secondary,
+.project-action--secondary {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.button--secondary:hover,
+.project-action--secondary:hover {
+  background-color: var(--color-accent-soft);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.button:focus-visible,
+.project-action:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.button:disabled,
+.project-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* Preserve the existing featured-project action layout */
 .project-actions {
   display: flex;
   flex-wrap: wrap;
@@ -15,76 +99,52 @@
   border-top: 1px solid var(--color-border);
 }
 
-.project-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+/* Hero */
+.hero {
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
 
-  min-height: 46px;
-  padding: 12px 18px;
-  border: 1px solid transparent;
-  border-radius: 8px;
-
-  font-size: 14px;
+.hero__eyebrow {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 12px;
   font-weight: 500;
-  line-height: 1.4;
-  text-decoration: none;
-
-  transition:
-    background-color 150ms ease,
-    border-color 150ms ease,
-    color 150ms ease;
+  line-height: 1.6;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.project-action--primary {
-  background: var(--color-text);
-  color: var(--color-surface);
-}
-
-.project-action--primary:hover {
-  background: var(--color-accent);
-}
-
-.project-action--secondary {
-  background: transparent;
-  border-color: var(--color-border);
+.hero__title {
+  max-width: 768px;
+  margin: 20px 0 0;
   color: var(--color-text);
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
 }
 
-.project-action--secondary:hover {
-  background: var(--color-bg);
-  border-color: var(--color-text);
+.hero__lead {
+  max-width: 576px;
+  margin: 24px 0 0;
+  color: var(--color-muted);
+  font-size: 16px;
+  line-height: 1.75;
 }
 
-.project-action:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
+.hero__context {
+  max-width: 576px;
+  margin: 16px 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.75;
 }
 
-@media (max-width: 479px) {
-  .project-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .project-action {
-    width: 100%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .project-action {
-    transition: none;
-  }
-}
-
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-}
-
-/* A supporting preview, not a full-size dashboard */
+/*
+ * Preserve the existing preview selectors.
+ * Home.tsx will be wired to these in the composition step.
+ */
 .project-preview {
   display: flex;
   align-items: center;
@@ -92,7 +152,7 @@ body {
   height: 300px;
   padding: 24px;
   overflow: hidden;
-  background: #f3efeb;
+  background-color: var(--color-preview);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -108,7 +168,7 @@ body {
   box-shadow: 0 8px 24px rgb(32 35 43 / 6%);
 }
 
-/* A quiet personal section, without another card */
+/* Preserve the current personal section until the layout step */
 .about-builder {
   display: grid;
   grid-template-columns: minmax(140px, 1fr) minmax(0, 2.3fr);
@@ -168,6 +228,17 @@ body {
   line-height: 1.6;
 }
 
+@media (min-width: 640px) {
+  .hero {
+    padding-top: 40px;
+    padding-bottom: 64px;
+  }
+
+  .hero__lead {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 640px) {
   .project-preview {
     height: 220px;
@@ -192,5 +263,25 @@ body {
     width: 36px;
     height: 36px;
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .action-row,
+  .project-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .action-row > .button,
+  .project-action {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .project-action {
+    transition: none;
   }
 }

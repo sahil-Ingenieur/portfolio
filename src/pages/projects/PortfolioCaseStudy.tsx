@@ -45,68 +45,96 @@ const limitations = [
   'Automated interaction tests and a formal accessibility audit are not part of this version.',
 ]
 
+const sectionHeadingClass =
+  'text-2xl font-semibold leading-tight tracking-tight text-[var(--color-text)]'
+
+const paragraphClass =
+  'mt-4 text-base leading-7 text-[var(--color-muted)]'
+
+const textLinkClass =
+  'inline-flex min-h-11 items-center gap-2 rounded-sm text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-accent)] hover:underline hover:underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)] motion-reduce:transition-none'
+
+const listClass =
+  'mt-5 list-disc space-y-3 pl-5 text-base leading-7 text-[var(--color-muted)] marker:text-[var(--color-accent)]'
+
 export default function PortfolioCaseStudy() {
   return (
-    <article className="mx-auto max-w-3xl">
-      <Link
-        to="/projects"
-        className="rounded-sm text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)]"
-      >
-        ← All projects
+    <article
+      aria-labelledby="case-study-title"
+      className="mx-auto min-w-0 max-w-3xl"
+    >
+      <Link to="/projects" className={textLinkClass}>
+        <span aria-hidden="true">←</span>
+        All projects
       </Link>
 
-      <header className="mt-8 border-b border-[var(--color-border)] pb-10">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]">
+      <header className="mt-6 border-b border-[var(--color-border)] pb-10 sm:pb-12">
+        <p className="text-xs font-medium uppercase leading-relaxed tracking-[0.14em] text-[var(--color-accent)]">
           Case study / Independent project
         </p>
 
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+        <h1
+          id="case-study-title"
+          className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-[var(--color-text)] sm:text-5xl"
+        >
           Portfolio Dashboard
         </h1>
 
-        <p className="mt-5 text-lg leading-relaxed text-[var(--color-muted)]">
+        <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
           A focused investment-portfolio interface that brings together
           valuation, performance history, and searchable holdings.
         </p>
 
-        <dl className="mt-8 grid gap-6 text-sm sm:grid-cols-3">
-          <div>
-            <dt className="text-[var(--color-muted)]">Role</dt>
-            <dd className="mt-1 font-medium">
+        <dl className="mt-8 grid gap-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 text-sm sm:grid-cols-3 sm:p-6">
+          <div className="min-w-0">
+            <dt className="text-[var(--color-muted)]">
+              Role
+            </dt>
+            <dd className="mt-2 font-medium leading-relaxed text-[var(--color-text)]">
               Design & front-end development
             </dd>
           </div>
 
-          <div>
-            <dt className="text-[var(--color-muted)]">Scope</dt>
-            <dd className="mt-1 font-medium">
+          <div className="min-w-0">
+            <dt className="text-[var(--color-muted)]">
+              Scope
+            </dt>
+            <dd className="mt-2 font-medium leading-relaxed text-[var(--color-text)]">
               Responsive dashboard demo
             </dd>
           </div>
 
-          <div>
-            <dt className="text-[var(--color-muted)]">Data</dt>
-            <dd className="mt-1 font-medium">
+          <div className="min-w-0">
+            <dt className="text-[var(--color-muted)]">
+              Data
+            </dt>
+            <dd className="mt-2 font-medium leading-relaxed text-[var(--color-text)]">
               Fictional holdings · CAD
             </dd>
           </div>
         </dl>
 
-        <Link
-          to="/projects/portfolio-dashboard"
-          className="mt-8 inline-flex rounded-lg bg-[var(--color-accent)] px-5 py-3 text-sm font-medium text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)]"
-        >
-          Explore the dashboard →
-        </Link>
+        <div className="action-row">
+          <Link
+            to="/projects/portfolio-dashboard"
+            className="button button--primary"
+          >
+            Explore the dashboard
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       </header>
 
-      <div className="space-y-12 py-10">
+      <div className="space-y-10 py-10 sm:space-y-12 sm:py-12">
         <section aria-labelledby="problem-heading">
-          <h2 id="problem-heading" className="text-2xl font-semibold tracking-tight">
+          <h2
+            id="problem-heading"
+            className={sectionHeadingClass}
+          >
             The problem
           </h2>
 
-          <p className="mt-4 leading-relaxed text-[var(--color-muted)]">
+          <p className={paragraphClass}>
             A portfolio overview needs to answer three questions quickly:
             what is it worth, how has it changed, and which holdings
             contribute to that value? The design challenge was to make
@@ -116,11 +144,14 @@ export default function PortfolioCaseStudy() {
         </section>
 
         <section aria-labelledby="approach-heading">
-          <h2 id="approach-heading" className="text-2xl font-semibold tracking-tight">
+          <h2
+            id="approach-heading"
+            className={sectionHeadingClass}
+          >
             The approach
           </h2>
 
-          <p className="mt-4 leading-relaxed text-[var(--color-muted)]">
+          <p className={paragraphClass}>
             The page follows a summary-to-detail hierarchy: portfolio
             value and daily P&L first, a performance chart second, and
             individual holdings third. A restrained palette, consistent
@@ -128,7 +159,7 @@ export default function PortfolioCaseStudy() {
             the data.
           </p>
 
-          <p className="mt-4 leading-relaxed text-[var(--color-muted)]">
+          <p className={paragraphClass}>
             On smaller screens, summary cards stack vertically and the
             holdings table scrolls within its own panel. Positive and
             negative changes include explicit signs, so colour is not
@@ -136,22 +167,29 @@ export default function PortfolioCaseStudy() {
           </p>
         </section>
 
-        <section aria-labelledby="architecture-heading">
+        <section
+          aria-labelledby="architecture-heading"
+          className="min-w-0"
+        >
           <h2
             id="architecture-heading"
-            className="text-2xl font-semibold tracking-tight"
+            className={sectionHeadingClass}
           >
             Architecture
           </h2>
 
-          <p className="mt-4 leading-relaxed text-[var(--color-muted)]">
+          <p className={paragraphClass}>
             The dashboard uses React and TypeScript, with Tailwind CSS
             and CSS variables for styling. TanStack Query manages the
             asynchronous data lifecycle, TanStack Table manages table
             behaviour, and Recharts renders performance history.
           </p>
 
-          <pre className="mt-5 overflow-x-auto rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 text-xs leading-7 sm:text-sm">
+          <pre
+            tabIndex={0}
+            aria-label="Architecture diagram, horizontally scrollable on smaller screens"
+            className="mt-5 max-w-full overflow-x-auto rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 text-xs leading-7 text-[var(--color-text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)] sm:p-6 sm:text-sm"
+          >
             <code>{`Mock data → Simulated API → TanStack Query
                               ↓
                          usePortfolio
@@ -168,26 +206,29 @@ Calculation utility → Portfolio value & daily P&L`}</code>
         <section aria-labelledby="decisions-heading">
           <h2
             id="decisions-heading"
-            className="text-2xl font-semibold tracking-tight"
+            className={sectionHeadingClass}
           >
             Decisions & tradeoffs
           </h2>
 
           <div className="mt-6 space-y-8">
             {decisions.map((decision) => (
-              <section key={decision.title}>
-                <h3 className="text-lg font-medium">
+              <div key={decision.title}>
+                <h3 className="text-lg font-medium leading-relaxed tracking-tight text-[var(--color-text)]">
                   {decision.title}
                 </h3>
 
-                <p className="mt-3 leading-relaxed text-[var(--color-muted)]">
+                <p className="mt-3 text-base leading-7 text-[var(--color-muted)]">
                   {decision.description}
                 </p>
 
-                <p className="mt-3 border-l-2 border-[var(--color-border)] pl-4 text-sm leading-relaxed text-[var(--color-muted)]">
-                  Tradeoff: {decision.tradeoff}
+                <p className="mt-4 border-l-2 border-[var(--color-accent)] pl-4 text-sm leading-7 text-[var(--color-muted)]">
+                  <span className="font-medium text-[var(--color-text)]">
+                    Tradeoff:
+                  </span>{' '}
+                  {decision.tradeoff}
                 </p>
-              </section>
+              </div>
             ))}
           </div>
         </section>
@@ -195,19 +236,19 @@ Calculation utility → Portfolio value & daily P&L`}</code>
         <section aria-labelledby="refinement-heading">
           <h2
             id="refinement-heading"
-            className="text-2xl font-semibold tracking-tight"
+            className={sectionHeadingClass}
           >
             A responsive-layout issue
           </h2>
 
-          <p className="mt-4 leading-relaxed text-[var(--color-muted)]">
+          <p className={paragraphClass}>
             During a 320px viewport check, the document expanded to
             766px and left a large blank area beside the content.
             Inspecting element bounds identified an off-screen Recharts
             tooltip rather than the table or page-width constraint.
           </p>
 
-          <p className="mt-4 leading-relaxed text-[var(--color-muted)]">
+          <p className={paragraphClass}>
             Containing overflow within the chart plotting area restored
             the document width to 320px. Tooltip visibility was then
             checked at both chart edges. The fix stayed local to the
@@ -218,12 +259,12 @@ Calculation utility → Portfolio value & daily P&L`}</code>
         <section aria-labelledby="delivered-heading">
           <h2
             id="delivered-heading"
-            className="text-2xl font-semibold tracking-tight"
+            className={sectionHeadingClass}
           >
             What the project demonstrates
           </h2>
 
-          <ul className="mt-5 list-disc space-y-3 pl-5 leading-relaxed text-[var(--color-muted)]">
+          <ul className={listClass}>
             {improvements.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -233,30 +274,31 @@ Calculation utility → Portfolio value & daily P&L`}</code>
         <section aria-labelledby="limitations-heading">
           <h2
             id="limitations-heading"
-            className="text-2xl font-semibold tracking-tight"
+            className={sectionHeadingClass}
           >
             Scope & limitations
           </h2>
 
-          <ul className="mt-5 list-disc space-y-3 pl-5 leading-relaxed text-[var(--color-muted)]">
+          <ul className={listClass}>
             {limitations.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
 
-          <p className="mt-5 text-sm leading-relaxed text-[var(--color-muted)]">
+          <p className="mt-6 text-sm leading-7 text-[var(--color-muted)]">
             This is an independent demonstration project, not work
             delivered for or endorsed by RBC, TD, or any other financial
             institution.
           </p>
         </section>
 
-        <footer className="border-t border-[var(--color-border)] pt-8">
+        <footer className="border-t border-[var(--color-border)] pt-6">
           <Link
             to="/projects/portfolio-dashboard"
-            className="rounded-sm font-medium text-[var(--color-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)]"
+            className="inline-flex min-h-11 items-center gap-3 rounded-sm text-sm font-medium text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-hover)] hover:underline hover:underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)] motion-reduce:transition-none"
           >
-            Try the interactive dashboard →
+            Try the interactive dashboard
+            <span aria-hidden="true">→</span>
           </Link>
         </footer>
       </div>

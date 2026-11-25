@@ -1,0 +1,258 @@
+/* Shared section rhythm for the homepage below the hero */
+.home-work,
+.home-about {
+  border-top: 1px solid var(--color-border);
+  padding-block: 40px;
+}
+
+.home-work {
+  scroll-margin-top: 32px;
+}
+
+.home-section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.home-section-title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+}
+
+.home-section-meta {
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Text leads; the preview supports */
+.home-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+}
+
+.home-project__content {
+  min-width: 0;
+}
+
+.home-project__eyebrow {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-project__title {
+  margin: 12px 0 0;
+  color: var(--color-text);
+  font-size: clamp(28px, 3vw, 34px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.home-project__description {
+  max-width: 560px;
+  margin: 16px 0 0;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.home-project__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-project__technology {
+  padding: 4px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Button presentation comes from the shared styles in index.css */
+.home-project__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.home-project__note {
+  margin: 16px 0 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* A bounded image, not a full-size dashboard */
+.home-project__preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  height: 240px;
+  padding: 16px;
+  overflow: hidden;
+
+  background-color: var(--color-preview);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  text-decoration: none;
+
+  transition: border-color 150ms ease;
+}
+
+.home-project__preview:hover {
+  border-color: var(--color-accent);
+}
+
+.home-project__preview:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.home-project__image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgb(32 35 43 / 6%);
+}
+
+.home-project__fallback {
+  max-width: 240px;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* About follows the same left-hand reading edge as the hero */
+.home-about__label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-about__blossom {
+  display: block;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  color: var(--color-sakura);
+}
+
+.home-about__eyebrow {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-about__content {
+  max-width: 660px;
+}
+
+.home-about__title {
+  margin: 20px 0 24px;
+  color: var(--color-text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3.5vw, 40px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.home-about__content p {
+  margin: 0 0 18px;
+  color: var(--color-muted);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.home-about__signature {
+  display: block;
+  margin-top: 24px;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+@media (min-width: 640px) {
+  .home-work,
+  .home-about {
+    padding-block: 48px;
+  }
+
+  .home-section-heading {
+    margin-bottom: 32px;
+  }
+}
+
+@media (min-width: 900px) {
+  .home-project {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .home-project__preview {
+    height: 260px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 479px) {
+  .home-project__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-project__actions > .button {
+    width: 100%;
+  }
+
+  .home-project__preview {
+    height: 220px;
+    padding: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-project__preview {
+    transition: none;
+  }
+}

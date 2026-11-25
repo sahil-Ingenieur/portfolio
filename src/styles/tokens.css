@@ -1,18 +1,22 @@
 :root {
-  --color-bg: #fafafa;
-  --color-surface: #ffffff;
-  --color-text: #111827;
-  --color-muted: #6b7280;
-  --color-accent: #1e40af;
-  --color-border: #e5e7eb;
-
-    --color-bg: #faf8f5;
-  --color-surface: #fffdfc;
+  /* Foundation: warm paper, soft surfaces, and ink */
   --color-text: #20232b;
-  --color-border: #e8e2dd;
-
-  --color-sakura: #d8a3af;
   --color-muted: #65616a;
+
+--color-bg: #f6f8f7;
+--color-surface: #fafafa;
+--color-border: #e3e9e5;
+
+  /* Sakura: dark rose for interaction, pale blossom for decoration */
+  --color-accent: #8c465b;
+  --color-accent-hover: #713649;
+  --color-sakura: #d8a3af;
+
+  /* Supporting surfaces for subsequent styling steps */
+  --color-accent-soft: #f4e8ec;
+--color-preview: #edf2ef;
+
+  /* Existing spacing scale — unchanged */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 16px;
@@ -21,6 +25,7 @@
   --space-6: 48px;
   --space-7: 64px;
 
+  /* Existing typography scale — unchanged */
   --text-sm: 14px;
   --text-base: 16px;
   --text-lg: 18px;

@@ -9,19 +9,19 @@ const links = [
 
 export default function Nav() {
   return (
-    <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+    <header className="border-b border-[var(--color-border)] bg-[var(--color-bg)]">
       <nav
         aria-label="Main navigation"
-        className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+        className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
         <Link
           to="/"
-          className="self-start rounded-sm font-semibold tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)]"
+          className="inline-flex min-h-11 items-center self-start rounded-sm font-semibold tracking-tight text-[var(--color-text)] transition-colors hover:text-[var(--color-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)] motion-reduce:transition-none"
         >
           Sahil
         </Link>
 
-        <ul className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+        <ul className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm sm:gap-x-6">
           {links.map((link) => (
             <li key={link.to}>
               <NavLink
@@ -29,13 +29,14 @@ export default function Nav() {
                 end={link.to === '/'}
                 className={({ isActive }) =>
                   [
-                    'rounded-sm transition-colors',
+                    'inline-flex min-h-11 items-center rounded-sm',
+                    'transition-colors motion-reduce:transition-none',
                     'focus-visible:outline focus-visible:outline-2',
                     'focus-visible:outline-offset-4',
                     'focus-visible:outline-[var(--color-accent)]',
                     isActive
-                      ? 'font-medium text-[var(--color-accent)]'
-                      : 'text-[var(--color-muted)] hover:text-[var(--color-text)]',
+                      ? 'text-[var(--color-accent)] underline decoration-1 underline-offset-8'
+                      : 'text-[var(--color-muted)] hover:text-[var(--color-accent)]',
                   ].join(' ')
                 }
               >
